@@ -4,9 +4,11 @@ tagline: 记录生活与思考
 description: >
   这里是一个记录日常生活、技术思考和个人想法的空间。
   欢迎来到我的数字花园。
-avatar: /assets/img/photo_2026-03-05_21-33-20.jpg
 timezone: Asia/Shanghai
 lang: zh-CN
+
+# 关键：添加 baseurl
+baseurl: /zhao-blog.github.io
 
 # 使用 GitHub Pages 内置主题
 theme: minima
