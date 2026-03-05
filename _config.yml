@@ -7,17 +7,19 @@ description: >
 timezone: Asia/Shanghai
 lang: zh-CN
 
-# baseurl（子目录部署）
-baseurl: "/zhao-blog.github.io"
+# Chirpy theme
+remote_theme: cotes2020/chirpy
 
-# 使用 GitHub Pages 内置主题
-theme: minima
+# baseurl
+baseurl: "/zhao-blog.github.io"
 
 # Build settings
 markdown: kramdown
+kramdown:
+  parser: gfm
 permalink: /posts/:title/
 
 # Navigation
 collections:
-  posts:
+  tabs:
     output: true
