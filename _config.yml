@@ -18,9 +18,3 @@ permalink: /posts/:title/
 collections:
   tabs:
     output: true
-
-# Paginate
-paginate: 10
-
-# Social links
-github: zhao922-bot
