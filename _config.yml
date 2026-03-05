@@ -7,19 +7,12 @@ description: >
 timezone: Asia/Shanghai
 lang: zh-CN
 
-# Chirpy theme
-remote_theme: cotes2020/chirpy
-
-# baseurl
+# baseurl（子目录部署）
 baseurl: "/zhao-blog.github.io"
+
+# 不使用 Jekyll 主题，使用纯 HTML + CSS
+# theme: minima
 
 # Build settings
 markdown: kramdown
-kramdown:
-  parser: gfm
 permalink: /posts/:title/
-
-# Navigation
-collections:
-  tabs:
-    output: true

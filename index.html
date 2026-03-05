@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>赵洋的数字花园</title>
+  <link rel="stylesheet" href="/zhao-blog.github.io/assets/css/style.css">
+</head>
+<body>
+  <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
+  
+  <div class="container">
+    <!-- 左侧边栏 -->
+    <aside class="sidebar">
+      <div class="profile-section">
+        <img src="/zhao-blog.github.io/assets/img/photo_2026-03-05_21-33-20.jpg" alt="头像" class="profile-img">
+        <div class="profile-name">赵洋</div>
+        <div class="profile-bio">记录生活与思考</div>
+      </div>
+      
+      <ul class="nav-links">
+        <li><a href="/zhao-blog.github.io/" class="active">首页</a></li>
+        <li><a href="/zhao-blog.github.io/categories/">分类</a></li>
+        <li><a href="/zhao-blog.github.io/tags/">标签</a></li>
+        <li><a href="/zhao-blog.github.io/archives/">归档</a></li>
+        <li><a href="/zhao-blog.github.io/about/">关于</a></li>
+      </ul>
+      
+      <div class="search-box">
+        <input type="text" class="search-input" placeholder="搜索...">
+      </div>
+      
+      <div class="social-links">
+        <a href="https://github.com/zhao922-bot" target="_blank" title="GitHub">🐙</a>
+        <a href="mailto:example@email.com" title="Email">✉️</a>
+        <a href="/zhao-blog.github.io/feed.xml" title="RSS">� RSS</a>
+      </div>
+      
+      <div class="update-section">
+        <div class="update-title">🌐 最近更新</div>
+        <ul class="update-list">
+          <li><a href="/zhao-blog.github.io/posts/welcome/">欢迎来到 Chirpy!</a></li>
+        </ul>
+      </div>
+    </aside>
+    
+    <!-- 右侧主内容 -->
+    <main class="main-content">
+      <header class="page-header">
+        <h1 class="page-title">赵洋的数字花园</h1>
+        <p class="page-description">这里记录我的日常生活、技术思考和个人想法</p>
+      </header>
+      
+      <section class="posts-section">
+        <h2 class="section-title">📋 最新文章</h2>
+        <ul class="posts-list">
+          <li class="post-item">
+            <h3 class="post-title">
+              <a href="/zhao-blog.github.io/posts/welcome/">欢迎来到 Chirpy!</a>
+            </h3>
+            <div class="post-meta">
+              <span>📅 2025-03-05</span>
+              <span>👤 赵洋</span>
+            </div>
+            <p class="post-excerpt">
+              欢迎来到我的数字花园！这是使用 GitHub Pages + Jekyll + Chirpy 主题搭建的博客。这里会记录我的日常生活、技术思考和个人想法...
+            </p>
+            <div class="post-tags">
+              <a href="/zhao-blog.github.io/tags/" class="tag">开始</a>
+              <a href="/zhao-blog.github.io/tags/" class="tag">博客</a>
+            </div>
+          </li>
+        </ul>
+      </section>
+      
+      <section class="posts-section">
+        <h2 class="section-title">📝 文章</h2>
+        <ul class="posts-list">
+          <li class="post-item">
+            <div class="post-meta">Mar 5, 2025</div>
+            <h3 class="post-title">
+              <a href="/zhao-blog.github.io/posts/welcome/">欢迎来到 Chirpy!</a>
+            </h3>
+          </li>
+        </ul>
+        <a href="/zhao-blog.github.io/feed.xml" class="rss-link">📥 RSS 订阅</a>
+      </section>
+      
+      <section class="tags-section">
+        <h2 class="section-title">🏷️ 标签</h2>
+        <a href="#" class="tag">开始</a>
+        <a href="#" class="tag">博客</a>
+        <a href="#" class="tag">随笔</a>
+      </section>
+      
+      <footer class="site-footer">
+        <p>© 2025 赵洋的数字花园. All rights reserved.</p>
+        <p>Powered by GitHub Pages</p>
+      </footer>
+    </main>
+  </div>
+  
+  <script>
+    // 主题切换
+    function toggleTheme() {
+      const html = document.documentElement;
+      if (html.style.filter === 'invert(1)') {
+        html.style.filter = '';
+        localStorage.setItem('theme', 'light');
+        document.querySelector('.theme-toggle').textContent = '🌙';
+      } else {
+        html.style.filter = 'invert(1)';
+        localStorage.setItem('theme', 'dark');
+        document.querySelector('.theme-toggle').textContent = '☀️';
+      }
+    }
+    
+    // 检查保存的主题
+    if (localStorage.getItem('theme') === 'dark') {
+      document.documentElement.style.filter = 'invert(1)';
+      document.querySelector('.theme-toggle').textContent = '☀️';
+    }
+  </script>
+</body>
+</html>
