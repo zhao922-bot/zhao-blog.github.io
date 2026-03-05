@@ -37,6 +37,16 @@
   box-sizing: border-box;
 }
 
+/* 黑暗模式下保持图片和图标原色 */
+html[style*="invert(1)"] .profile-img,
+html[style*="invert(1)"] .social-links a,
+html[style*="invert(1)"] .theme-toggle,
+html[style*="filter: invert(1)"] .profile-img,
+html[style*="filter: invert(1)"] .social-links a,
+html[style*="filter: invert(1)"] .theme-toggle {
+  filter: invert(0) !important;
+}
+
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif;
   background-color: var(--bg-color);

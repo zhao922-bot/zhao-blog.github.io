@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>欢迎来到 Chirpy! - 赵洋的数字花园</title>
+  <title>一个存放想法的小角落 - 赵洋的数字花园</title>
   <link rel="stylesheet" href="/zhao-blog.github.io/assets/css/style.css">
 </head>
 <body>
@@ -34,7 +34,7 @@
     
     <main class="main-content">
       <header class="page-header">
-        <h1 class="page-title">欢迎来到 Chirpy!</h1>
+        <h1 class="page-title">一个存放想法的小角落</h1>
         <p class="page-description">📅 2025-03-05 · 👤 赵洋</p>
       </header>
       
@@ -56,22 +56,30 @@
   </div>
   
   <script>
+    // 主题切换 - 排除图片和图标
     function toggleTheme() {
       const html = document.documentElement;
+      const images = document.querySelectorAll('.profile-img, .social-links a, .theme-toggle');
+      
       if (html.style.filter === 'invert(1)') {
         html.style.filter = '';
         localStorage.setItem('theme', 'light');
         document.querySelector('.theme-toggle').textContent = '🌙';
+        images.forEach(img => img.style.filter = '');
       } else {
         html.style.filter = 'invert(1)';
         localStorage.setItem('theme', 'dark');
         document.querySelector('.theme-toggle').textContent = '☀️';
+        images.forEach(img => img.style.filter = 'invert(0)');
       }
     }
     
+    // 检查保存的主题
     if (localStorage.getItem('theme') === 'dark') {
       document.documentElement.style.filter = 'invert(1)';
       document.querySelector('.theme-toggle').textContent = '☀️';
+      const images = document.querySelectorAll('.profile-img, .social-links a, .theme-toggle');
+      images.forEach(img => img.style.filter = 'invert(0)');
     }
   </script>
 </body>

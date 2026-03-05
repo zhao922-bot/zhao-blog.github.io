@@ -43,7 +43,7 @@
           <li class="post-item">
             <div class="post-meta">2025-03</div>
             <h3 class="post-title">
-              <a href="/zhao-blog.github.io/posts/welcome.html">欢迎来到 Chirpy!</a>
+              <a href="/zhao-blog.github.io/posts/welcome.html">一个存放想法的小角落</a>
             </h3>
           </li>
         </ul>
@@ -56,22 +56,30 @@
   </div>
   
   <script>
+    // 主题切换 - 排除图片和图标
     function toggleTheme() {
       const html = document.documentElement;
+      const images = document.querySelectorAll('.profile-img, .social-links a, .theme-toggle');
+      
       if (html.style.filter === 'invert(1)') {
         html.style.filter = '';
         localStorage.setItem('theme', 'light');
         document.querySelector('.theme-toggle').textContent = '🌙';
+        images.forEach(img => img.style.filter = '');
       } else {
         html.style.filter = 'invert(1)';
         localStorage.setItem('theme', 'dark');
         document.querySelector('.theme-toggle').textContent = '☀️';
+        images.forEach(img => img.style.filter = 'invert(0)');
       }
     }
     
+    // 检查保存的主题
     if (localStorage.getItem('theme') === 'dark') {
       document.documentElement.style.filter = 'invert(1)';
       document.querySelector('.theme-toggle').textContent = '☀️';
+      const images = document.querySelectorAll('.profile-img, .social-links a, .theme-toggle');
+      images.forEach(img => img.style.filter = 'invert(0)');
     }
   </script>
 </body>

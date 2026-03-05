@@ -39,7 +39,7 @@
       <div class="update-section">
         <div class="update-title">🌐 最近更新</div>
         <ul class="update-list">
-          <li><a href="/zhao-blog.github.io/posts/welcome.html">欢迎来到 Chirpy!</a></li>
+          <li><a href="/zhao-blog.github.io/posts/welcome.html">一个存放想法的小角落</a></li>
         </ul>
       </div>
     </aside>
@@ -56,7 +56,7 @@
         <ul class="posts-list">
           <li class="post-item">
             <h3 class="post-title">
-              <a href="/zhao-blog.github.io/posts/welcome.html">欢迎来到 Chirpy!</a>
+              <a href="/zhao-blog.github.io/posts/welcome.html">一个存放想法的小角落</a>
             </h3>
             <div class="post-meta">
               <span>📅 2025-03-05</span>
@@ -79,7 +79,7 @@
           <li class="post-item">
             <div class="post-meta">Mar 5, 2025</div>
             <h3 class="post-title">
-              <a href="/zhao-blog.github.io/posts/welcome.html">欢迎来到 Chirpy!</a>
+              <a href="/zhao-blog.github.io/posts/welcome.html">一个存放想法的小角落</a>
             </h3>
           </li>
         </ul>
@@ -88,9 +88,8 @@
       
       <section class="tags-section">
         <h2 class="section-title">🏷️ 标签</h2>
-        <a href="#" class="tag">开始</a>
-        <a href="#" class="tag">博客</a>
-        <a href="#" class="tag">随笔</a>
+        <a href="/zhao-blog.github.io/tags/开始.html" class="tag">开始</a>
+        <a href="/zhao-blog.github.io/tags/博客.html" class="tag">博客</a>
       </section>
       
       <footer class="site-footer">
@@ -101,17 +100,21 @@
   </div>
   
   <script>
-    // 主题切换
+    // 主题切换 - 排除图片和图标
     function toggleTheme() {
       const html = document.documentElement;
+      const images = document.querySelectorAll('.profile-img, .social-links a, .theme-toggle');
+      
       if (html.style.filter === 'invert(1)') {
         html.style.filter = '';
         localStorage.setItem('theme', 'light');
         document.querySelector('.theme-toggle').textContent = '🌙';
+        images.forEach(img => img.style.filter = '');
       } else {
         html.style.filter = 'invert(1)';
         localStorage.setItem('theme', 'dark');
         document.querySelector('.theme-toggle').textContent = '☀️';
+        images.forEach(img => img.style.filter = 'invert(0)');
       }
     }
     
@@ -119,6 +122,8 @@
     if (localStorage.getItem('theme') === 'dark') {
       document.documentElement.style.filter = 'invert(1)';
       document.querySelector('.theme-toggle').textContent = '☀️';
+      const images = document.querySelectorAll('.profile-img, .social-links a, .theme-toggle');
+      images.forEach(img => img.style.filter = 'invert(0)');
     }
   </script>
 </body>
