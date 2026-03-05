@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>归档 - 赵洋的数字花园</title>
+  <link rel="stylesheet" href="/zhao-blog.github.io/assets/css/style.css">
+</head>
+<body>
+  <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
+  
+  <div class="container">
+    <aside class="sidebar">
+      <div class="profile-section">
+        <img src="/zhao-blog.github.io/assets/img/photo_2026-03-05_21-33-20.jpg" alt="头像" class="profile-img">
+        <div class="profile-name">赵洋</div>
+        <div class="profile-bio">记录生活与思考</div>
+      </div>
+      
+      <ul class="nav-links">
+        <li><a href="/zhao-blog.github.io/">首页</a></li>
+        <li><a href="/zhao-blog.github.io/categories/">分类</a></li>
+        <li><a href="/zhao-blog.github.io/tags/">标签</a></li>
+        <li><a href="/zhao-blog.github.io/archives/" class="active">归档</a></li>
+        <li><a href="/zhao-blog.github.io/about/">关于</a></li>
+      </ul>
+      
+      <div class="social-links">
+        <a href="https://github.com/zhao922-bot" target="_blank">🐙</a>
+        <a href="mailto:example@email.com">✉️</a>
+        <a href="/zhao-blog.github.io/feed.xml">📥 RSS</a>
+      </div>
+    </aside>
+    
+    <main class="main-content">
+      <header class="page-header">
+        <h1 class="page-title">归档</h1>
+      </header>
+      
+      <section class="posts-section">
+        <p>暂无归档。</p>
+      </section>
+      
+      <footer class="site-footer">
+        <p>© 2025 赵洋的数字花园. All rights reserved.</p>
+      </footer>
+    </main>
+  </div>
+  
+  <script>
+    function toggleTheme() {
+      const html = document.documentElement;
+      if (html.style.filter === 'invert(1)') {
+        html.style.filter = '';
+        localStorage.setItem('theme', 'light');
+        document.querySelector('.theme-toggle').textContent = '🌙';
+      } else {
+        html.style.filter = 'invert(1)';
+        localStorage.setItem('theme', 'dark');
+        document.querySelector('.theme-toggle').textContent = '☀️';
+      }
+    }
+    
+    if (localStorage.getItem('theme') === 'dark') {
+      document.documentElement.style.filter = 'invert(1)';
+      document.querySelector('.theme-toggle').textContent = '☀️';
+    }
+  </script>
+</body>
+</html>
