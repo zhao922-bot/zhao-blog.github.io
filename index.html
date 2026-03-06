@@ -100,30 +100,25 @@
   </div>
   
   <script>
-    // 主题切换 - 排除图片和图标
+    // 主题切换 - 使用 class 切换，不影响图片
     function toggleTheme() {
-      const html = document.documentElement;
-      const images = document.querySelectorAll('.profile-img, .social-links a, .theme-toggle');
+      const body = document.body;
       
-      if (html.style.filter === 'invert(1)') {
-        html.style.filter = '';
+      if (body.classList.contains('dark-mode')) {
+        body.classList.remove('dark-mode');
         localStorage.setItem('theme', 'light');
         document.querySelector('.theme-toggle').textContent = '🌙';
-        images.forEach(img => img.style.filter = '');
       } else {
-        html.style.filter = 'invert(1)';
+        body.classList.add('dark-mode');
         localStorage.setItem('theme', 'dark');
         document.querySelector('.theme-toggle').textContent = '☀️';
-        images.forEach(img => img.style.filter = 'invert(0)');
       }
     }
     
-    // 检查保存的主题
+    // 页面加载时检查保存的主题
     if (localStorage.getItem('theme') === 'dark') {
-      document.documentElement.style.filter = 'invert(1)';
+      document.body.classList.add('dark-mode');
       document.querySelector('.theme-toggle').textContent = '☀️';
-      const images = document.querySelectorAll('.profile-img, .social-links a, .theme-toggle');
-      images.forEach(img => img.style.filter = 'invert(0)');
     }
   </script>
 </body>
