@@ -37,12 +37,12 @@
   box-sizing: border-box;
 }
 
-/* 黑暗模式下保持图片和图标原色 - 使用更强的方式 */
-html .profile-img,
-html .social-links a,
-html .theme-toggle,
-html .rss-link {
-  filter: none !important;
+/* 黑暗模式下保持图片和图标原色 - 使用双重 invert 抵消父元素效果 */
+html[style*="invert"] .profile-img,
+html[style*="invert"] .social-links a,
+html[style*="invert"] .theme-toggle,
+html[style*="invert"] .rss-link {
+  filter: invert(1) !important;
 }
 
 body {
