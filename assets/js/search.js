@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function() {
       title: '我的 GitHub 项目分享',
       url: '/zhao-blog.github.io/posts/github-projects.html',
       date: '2025-03-06',
-      tags: ['GitHub', '开源', '项目'],
+      tags: ['GitHub', '项目'],
       excerpt: '分享我在 GitHub 上的项目：微信读书伴侣、自定义 LLM 翻译扩展、EPUB 整书翻译工具。'
     }
   ];
