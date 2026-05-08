@@ -72,27 +72,6 @@
     </main>
   </div>
   
-  <script>
-    // 主题切换 - 使用 class 切换，不影响图片
-    function toggleTheme() {
-      const body = document.body;
-      
-      if (body.classList.contains('dark-mode')) {
-        body.classList.remove('dark-mode');
-        localStorage.setItem('theme', 'light');
-        document.querySelector('.theme-toggle').textContent = '🌙';
-      } else {
-        body.classList.add('dark-mode');
-        localStorage.setItem('theme', 'dark');
-        document.querySelector('.theme-toggle').textContent = '☀️';
-      }
-    }
-    
-    // 页面加载时检查保存的主题
-    if (localStorage.getItem('theme') === 'dark') {
-      document.body.classList.add('dark-mode');
-      document.querySelector('.theme-toggle').textContent = '☀️';
-    }
-  </script>
+  <script src="/zhao-blog.github.io/assets/js/theme.js"></script>
 </body>
 </html>

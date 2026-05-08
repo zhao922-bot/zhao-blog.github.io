@@ -383,3 +383,43 @@ body {
 .rss-link:hover {
   text-decoration: underline;
 }
+
+/* 目录 (TOC) */
+.toc {
+  background-color: var(--sidebar-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 30px;
+}
+
+.toc-title {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: var(--text-color);
+}
+
+.toc-list {
+  list-style: none;
+}
+
+.toc-item {
+  margin-bottom: 8px;
+}
+
+.toc-link {
+  color: var(--link-color);
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.2s;
+}
+
+.toc-link:hover {
+  color: var(--text-color);
+  text-decoration: underline;
+}
+
+.toc-h3 {
+  padding-left: 20px;
+}
