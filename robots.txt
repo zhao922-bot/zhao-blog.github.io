@@ -1,0 +1,9 @@
+# robots.txt for zhao-blog.github.io
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://zhao922-bot.github.io/zhao-blog.github.io/sitemap.xml
+
+# Disallow admin pages (if any)
+# Disallow: /admin/

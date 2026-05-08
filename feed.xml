@@ -1,14 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 <channel>
   <title>赵洋的数字花园</title>
-  <link>https://zhao922-bot.github.io/zhao-blog.github.io</link>
-  <description>记录日常生活和技术思考</description>
+  <link>https://zhao922-bot.github.io/zhao-blog.github.io/</link>
+  <description>记录日常生活、技术思考和个人想法</description>
+  <language>zh-CN</language>
+  <lastBuildDate>Thu, 06 Mar 2025 12:00:00 +0800</lastBuildDate>
+  <atom:link href="https://zhao922-bot.github.io/zhao-blog.github.io/feed.xml" rel="self" type="application/rss+xml"/>
   <item>
-    <title>欢迎来到 Chirpy!</title>
+    <title>我的 GitHub 项目分享</title>
+    <link>https://zhao922-bot.github.io/zhao-blog.github.io/posts/github-projects.html</link>
+    <description>分享我在 GitHub 上的项目：微信读书伴侣、自定义 LLM 翻译扩展、EPUB 整书翻译工具。</description>
+    <pubDate>Thu, 06 Mar 2025 12:00:00 +0800</pubDate>
+    <guid>https://zhao922-bot.github.io/zhao-blog.github.io/posts/github-projects.html</guid>
+    <category>GitHub</category>
+    <category>开源</category>
+    <category>项目</category>
+  </item>
+  <item>
+    <title>一个存放想法的小角落</title>
     <link>https://zhao922-bot.github.io/zhao-blog.github.io/posts/welcome.html</link>
-    <description>这是我的个人博客，记录日常生活和技术思考。</description>
-    <pubDate>Thu, 05 Mar 2025 12:00:00 +0800</pubDate>
+    <description>欢迎来到我的数字花园！这是我的个人博客，记录日常生活和技术思考。</description>
+    <pubDate>Wed, 05 Mar 2025 12:00:00 +0800</pubDate>
+    <guid>https://zhao922-bot.github.io/zhao-blog.github.io/posts/welcome.html</guid>
+    <category>开始</category>
+    <category>博客</category>
   </item>
 </channel>
 </rss>
