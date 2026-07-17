@@ -1,17 +1,24 @@
-- name: 微信读书伴侣 · PyQt6
-  description: 同步并管理微信读书的书架、划线和笔记，支持检索、导出、金句卡片与阅读报告。
-  stack: Python · PyQt6 · SQLite
-  url: https://github.com/zhao922-bot/weread-companion-pyqt6
+- name: OpenAver 中文增强版
+  description: 基于 OpenAver 持续维护的个人增强分支，强化中文元数据、批量整理与回滚、NFO/剧照维护、授权媒体下载和运维诊断。
+  stack: openaver-cn-local · Python · FastAPI · SQLite · FFmpeg
+  url: https://github.com/zhao922-bot/OpenAver/tree/openaver-cn-local
+- name: EPUB Translator · Flutter
+  description: 面向 Windows 与 Android 的 EPUB 整书翻译应用，支持章节选择、并发翻译、断点续译、术语表、双语对照以及费用预估。
+  stack: v1.1.0 · Flutter · Dart · Riverpod · Dio
+  url: https://github.com/zhao922-bot/epub-translator-flutter
 - name: 微信读书伴侣 · Flutter
-  description: 面向 Android 的移动阅读伴侣，整合笔记管理、金句卡片、阅读统计与 AI 摘要。
-  stack: Flutter · Dart · Material 3
+  description: 面向 Android 的移动阅读伴侣，集中管理书架与笔记，并提供金句卡片、阅读报告、AI 摘要和 Markdown 导出。
+  stack: v2.2.0 · Flutter · Dart · SQLite · Material 3
   url: https://github.com/zhao922-bot/weread-companion-flutter
-- name: 自定义 LLM 翻译扩展
-  description: 隐私优先的网页翻译扩展，兼容 OpenAI、DeepSeek、Ollama 等开放接口。
-  stack: JavaScript · Browser Extension
+- name: Custom LLM Translator
+  description: 隐私优先的网页翻译扩展，可连接 OpenAI 兼容 API，支持动态网页、多目标语言、行内译文与自定义提示词。
+  stack: JavaScript · Chrome / Edge · OpenAI-compatible API
   url: https://github.com/zhao922-bot/immersive-translate-ext
-- name: EPUB 整书翻译工具
-  description: 保留原书排版和目录结构的长文本翻译工具，支持缓存、断点续传与双语对照。
-  stack: Python · EPUB · LLM API
+- name: 微信读书伴侣 · PyQt6
+  description: 桌面端微信读书数据工具，支持书架与笔记同步、搜索收藏、金句卡片、阅读报告、AI 摘要和批量导出。
+  stack: v2.0.1 · Python · PyQt6 · SQLite
+  url: https://github.com/zhao922-bot/weread-companion-pyqt6
+- name: EPUB Translator · Python
+  description: 同时提供命令行和桌面界面的 EPUB 翻译工具，在保留排版、图片与目录的同时支持缓存、失败重试和双语输出。
+  stack: Python · EPUB / HTML · OpenAI-compatible API
   url: https://github.com/zhao922-bot/epub-translator
-
