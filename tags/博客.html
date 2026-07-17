@@ -1,65 +1,9 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>标签：博客 - 赵洋的数字花园</title>
-  <meta name="description" content="浏览标签"博客"下的所有文章。">
-  <meta name="author" content="赵洋">
-  <meta property="og:title" content="标签：博客 - 赵洋的数字花园">
-  <meta property="og:description" content="浏览标签"博客"下的所有文章。">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://zhao922-bot.github.io/zhao-blog.github.io/tags/博客.html">
-  <link rel="stylesheet" href="/zhao-blog.github.io/assets/css/style.css">
-</head>
-<body>
-  <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
-  
-  <div class="container">
-    <aside class="sidebar">
-      <div class="profile-section">
-        <img src="/zhao-blog.github.io/assets/img/photo_2026-03-05_21-33-20.jpg" alt="头像" class="profile-img">
-        <div class="profile-name">赵洋</div>
-        <div class="profile-bio">记录生活与思考</div>
-      </div>
-      
-      <ul class="nav-links">
-        <li><a href="/zhao-blog.github.io/">首页</a></li>
-        <li><a href="/zhao-blog.github.io/tags.html" class="active">标签</a></li>
-        <li><a href="/zhao-blog.github.io/archives.html">归档</a></li>
-        <li><a href="/zhao-blog.github.io/about.html">关于</a></li>
-      </ul>
-      
-      <div class="social-links">
-        <a href="https://github.com/zhao922-bot" target="_blank">🐙</a>
-        <a href="mailto:1405286051@qq.com">✉️</a>
-        <a href="/zhao-blog.github.io/feed.xml">📡 RSS</a>
-      </div>
-    </aside>
-    
-    <main class="main-content">
-      <header class="page-header">
-        <h1 class="page-title">标签：博客</h1>
-      </header>
-      
-      <section class="posts-section">
-        <ul class="posts-list">
-          <li class="post-item">
-            <h3 class="post-title">
-              <a href="/zhao-blog.github.io/posts/welcome.html">一个存放想法的小角落</a>
-            </h3>
-            <div class="post-meta">📅 2025-03-05</div>
-          </li>
-        </ul>
-      </section>
-      
-      <footer class="site-footer">
-        <p>© 2025 赵洋的数字花园. All rights reserved.</p>
-      </footer>
-    </main>
-  </div>
-  
-  <script src="/zhao-blog.github.io/assets/js/theme.js"></script>
-  <script src="/zhao-blog.github.io/assets/js/back-to-top.js"></script>
-</body>
-</html>
+---
+layout: page
+title: 标签：博客
+nav: tags
+eyebrow: TAG
+tag_name: 博客
+description: 浏览博客标签下的文章。
+---
+{% include tag-posts.html %}

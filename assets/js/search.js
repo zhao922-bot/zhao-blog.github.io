@@ -1,100 +1,103 @@
-// 本地搜索功能
-document.addEventListener('DOMContentLoaded', function() {
-  const searchInput = document.querySelector('.search-input');
-  if (!searchInput) return;
-  
-  // 文章数据
-  const posts = [
-    {
-      title: '一个存放想法的小角落',
-      url: '/zhao-blog.github.io/posts/welcome.html',
-      date: '2025-03-05',
-      tags: ['开始', '博客'],
-      excerpt: '欢迎来到我的数字花园！这是我的个人博客，记录日常生活和技术思考。'
-    },
-    {
-      title: '我的 GitHub 项目分享',
-      url: '/zhao-blog.github.io/posts/github-projects.html',
-      date: '2025-03-06',
-      tags: ['GitHub', '项目'],
-      excerpt: '分享我在 GitHub 上的项目：微信读书伴侣、自定义 LLM 翻译扩展、EPUB 整书翻译工具。'
+(function () {
+  var input = document.querySelector('.search-input');
+  var results = document.querySelector('.search-results');
+  if (!input || !results) return;
+
+  var posts = [];
+  var activeIndex = -1;
+
+  function closeResults() {
+    results.hidden = true;
+    input.setAttribute('aria-expanded', 'false');
+    activeIndex = -1;
+  }
+
+  function normalize(value) {
+    return String(value || '').toLocaleLowerCase('zh-CN');
+  }
+
+  function render(matches) {
+    results.replaceChildren();
+
+    if (!matches.length) {
+      var empty = document.createElement('p');
+      empty.className = 'search-empty';
+      empty.textContent = '没有找到相关文章';
+      results.appendChild(empty);
+    } else {
+      matches.slice(0, 6).forEach(function (post) {
+        var link = document.createElement('a');
+        var title = document.createElement('strong');
+        var meta = document.createElement('span');
+
+        link.className = 'search-result';
+        link.href = post.url;
+        link.setAttribute('role', 'option');
+        link.setAttribute('aria-selected', 'false');
+        title.textContent = post.title;
+        meta.textContent = post.date + (post.tags.length ? ' · ' + post.tags.join(' / ') : '');
+        link.append(title, meta);
+        results.appendChild(link);
+      });
     }
-  ];
-  
-  // 创建搜索结果容器
-  const searchResults = document.createElement('div');
-  searchResults.className = 'search-results';
-  searchResults.style.display = 'none';
-  searchInput.parentNode.appendChild(searchResults);
-  
-  // 搜索函数
-  function performSearch(query) {
-    if (!query.trim()) {
-      searchResults.style.display = 'none';
+
+    results.hidden = false;
+    input.setAttribute('aria-expanded', 'true');
+    activeIndex = -1;
+  }
+
+  function search(query) {
+    var needle = normalize(query).trim();
+    if (!needle) {
+      closeResults();
       return;
     }
-    
-    const lowerQuery = query.toLowerCase();
-    const results = posts.filter(function(post) {
-      return post.title.toLowerCase().includes(lowerQuery) ||
-             post.excerpt.toLowerCase().includes(lowerQuery) ||
-             post.tags.some(function(tag) {
-               return tag.toLowerCase().includes(lowerQuery);
-             });
+
+    var matches = posts.filter(function (post) {
+      return normalize([post.title, post.excerpt, post.tags.join(' ')].join(' ')).includes(needle);
     });
-    
-    displayResults(results, query);
+    render(matches);
   }
-  
-  // 显示搜索结果
-  function displayResults(results, query) {
-    if (results.length === 0) {
-      searchResults.innerHTML = '<div class="search-no-results">未找到相关文章</div>';
-    } else {
-      let html = '';
-      results.forEach(function(post) {
-        const highlightedTitle = highlightText(post.title, query);
-        const highlightedExcerpt = highlightText(post.excerpt, query);
-        html += '<div class="search-result-item">' +
-                '<a href="' + post.url + '">' +
-                '<div class="search-result-title">' + highlightedTitle + '</div>' +
-                '<div class="search-result-meta">' + post.date + '</div>' +
-                '<div class="search-result-excerpt">' + highlightedExcerpt + '</div>' +
-                '</a></div>';
-      });
-      searchResults.innerHTML = html;
-    }
-    searchResults.style.display = 'block';
-  }
-  
-  // 高亮匹配文本
-  function highlightText(text, query) {
-    if (!query.trim()) return text;
-    const regex = new RegExp('(' + escapeRegExp(query) + ')', 'gi');
-    return text.replace(regex, '<mark>$1</mark>');
-  }
-  
-  // 转义正则表达式特殊字符
-  function escapeRegExp(string) {
-    return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-  }
-  
-  // 事件监听
-  searchInput.addEventListener('input', function() {
-    performSearch(this.value);
+
+  fetch(input.dataset.searchUrl)
+    .then(function (response) {
+      if (!response.ok) throw new Error('Search index unavailable');
+      return response.json();
+    })
+    .then(function (data) {
+      posts = data;
+    })
+    .catch(function () {
+      input.placeholder = '搜索暂不可用';
+      input.disabled = true;
+    });
+
+  input.addEventListener('input', function () {
+    search(input.value);
   });
-  
-  // 点击外部关闭搜索结果
-  document.addEventListener('click', function(e) {
-    if (!searchInput.contains(e.target) && !searchResults.contains(e.target)) {
-      searchResults.style.display = 'none';
+
+  input.addEventListener('keydown', function (event) {
+    var options = Array.from(results.querySelectorAll('[role="option"]'));
+    if (event.key === 'Escape') {
+      closeResults();
+      return;
     }
-  });
-  
-  // 键盘导航
-  searchInput.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') {
-      searchResults.style.display = 'none';
+    if (!options.length || !['ArrowDown', 'ArrowUp', 'Enter'].includes(event.key)) return;
+
+    event.preventDefault();
+    if (event.key === 'ArrowDown') activeIndex = (activeIndex + 1) % options.length;
+    if (event.key === 'ArrowUp') activeIndex = (activeIndex - 1 + options.length) % options.length;
+    if (event.key === 'Enter' && activeIndex >= 0) {
+      window.location.href = options[activeIndex].href;
+      return;
     }
+
+    options.forEach(function (option, index) {
+      option.setAttribute('aria-selected', String(index === activeIndex));
+    });
   });
-});
+
+  document.addEventListener('click', function (event) {
+    if (!results.contains(event.target) && event.target !== input) closeResults();
+  });
+}());

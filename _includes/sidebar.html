@@ -1,0 +1,30 @@
+<aside class="sidebar" aria-label="站点信息与导航">
+  <a class="profile" href="{{ '/' | relative_url }}">
+    <picture>
+      <source srcset="{{ '/assets/img/avatar-160.webp' | relative_url }} 160w, {{ '/assets/img/avatar-260.webp' | relative_url }} 260w" type="image/webp">
+      <img class="profile-img" src="{{ '/assets/img/avatar-260.webp' | relative_url }}" width="130" height="130" alt="赵洋的头像" fetchpriority="high">
+    </picture>
+    <span class="profile-name">赵洋</span>
+    <span class="profile-bio">生物学研究生 · 独立开发者</span>
+  </a>
+
+  <nav class="site-nav" aria-label="主要导航">
+    <a href="{{ '/' | relative_url }}"{% if page.nav == 'home' %} class="active" aria-current="page"{% endif %}>首页</a>
+    <a href="{{ '/projects/' | relative_url }}"{% if page.nav == 'projects' %} class="active" aria-current="page"{% endif %}>项目</a>
+    <a href="{{ '/archives.html' | relative_url }}"{% if page.nav == 'archives' %} class="active" aria-current="page"{% endif %}>归档</a>
+    <a href="{{ '/tags.html' | relative_url }}"{% if page.nav == 'tags' %} class="active" aria-current="page"{% endif %}>标签</a>
+    <a href="{{ '/about.html' | relative_url }}"{% if page.nav == 'about' %} class="active" aria-current="page"{% endif %}>关于</a>
+  </nav>
+
+  <div class="search-box">
+    <label class="sr-only" for="site-search">搜索文章</label>
+    <input id="site-search" class="search-input" type="search" role="combobox" placeholder="搜索文章…" autocomplete="off" aria-autocomplete="list" aria-haspopup="listbox" aria-controls="search-results" aria-expanded="false" data-search-url="{{ '/search.json' | relative_url }}">
+    <div id="search-results" class="search-results" role="listbox" hidden></div>
+  </div>
+
+  <nav class="social-links" aria-label="外部链接">
+    <a href="https://github.com/zhao922-bot" target="_blank" rel="noopener noreferrer" aria-label="访问赵洋的 GitHub">GitHub</a>
+    <a href="mailto:1405286051@qq.com" aria-label="Email：发送电子邮件">Email</a>
+    <a href="{{ '/feed.xml' | relative_url }}" aria-label="订阅 RSS">RSS</a>
+  </nav>
+</aside>

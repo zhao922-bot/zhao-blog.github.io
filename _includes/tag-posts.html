@@ -1,0 +1,17 @@
+{% assign tagged_posts = site.tags[page.tag_name] %}
+<div class="taxonomy-list">
+  <section class="taxonomy-group">
+    <div class="taxonomy-heading">
+      <h2>{{ page.tag_name }}</h2>
+      <span>{{ tagged_posts.size }} 篇</span>
+    </div>
+    {% for post in tagged_posts %}
+      <a class="taxonomy-post" href="{{ post.url | relative_url }}">
+        <span>{{ post.title }}</span>
+        <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: '%Y-%m-%d' }}</time>
+      </a>
+    {% endfor %}
+  </section>
+</div>
+<p><a class="text-link" href="{{ '/tags.html' | relative_url }}">← 返回全部标签</a></p>
+

@@ -1,18 +1,48 @@
-# Site settings
 title: 赵洋的数字花园
-tagline: 记录生活与思考
-description: >
-  这里是一个记录日常生活、技术思考和个人想法的空间。
-  欢迎来到我的数字花园。
-timezone: Asia/Shanghai
-lang: zh-CN
-
-# baseurl（子目录部署）
+tagline: 记录研究、开发与阅读中的思考
+description: 生物学研究生与独立开发者赵洋的个人博客，分享阅读工具、AI 翻译、开源项目和技术实践。
+url: "https://zhao922-bot.github.io"
 baseurl: "/zhao-blog.github.io"
+lang: zh-CN
+timezone: Asia/Shanghai
 
-# 不使用 Jekyll 主题，使用纯 HTML + CSS
-# theme: minima
+author:
+  name: 赵洋
+  url: "https://github.com/zhao922-bot"
 
-# Build settings
+github:
+  username: zhao922-bot
+
+social:
+  name: 赵洋
+  links:
+    - "https://github.com/zhao922-bot"
+
+logo: /assets/img/avatar-260.webp
+image: /assets/img/og.png
+
 markdown: kramdown
-permalink: /posts/:title/
+permalink: /posts/:title.html
+
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+feed:
+  path: feed.xml
+
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+      author: 赵洋
+      image: /assets/img/og.png
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor

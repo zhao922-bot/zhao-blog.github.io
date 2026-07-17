@@ -1,0 +1,20 @@
+---
+layout: page
+title: 精选项目
+nav: projects
+eyebrow: PROJECTS
+permalink: /projects/
+description: 围绕阅读、翻译与个人知识管理构建的小而完整的产品。
+---
+<div class="projects-page-grid">
+  {% for project in site.data.projects %}
+    <article class="project-card project-card-large">
+      <p class="project-index">0{{ forloop.index }}</p>
+      <h2>{{ project.name }}</h2>
+      <p>{{ project.description }}</p>
+      <p class="project-stack">{{ project.stack }}</p>
+      <a class="button button-secondary" href="{{ project.url }}" target="_blank" rel="noopener noreferrer">在 GitHub 查看</a>
+    </article>
+  {% endfor %}
+</div>
+

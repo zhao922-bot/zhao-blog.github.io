@@ -1,0 +1,17 @@
+- name: 微信读书伴侣 · PyQt6
+  description: 同步并管理微信读书的书架、划线和笔记，支持检索、导出、金句卡片与阅读报告。
+  stack: Python · PyQt6 · SQLite
+  url: https://github.com/zhao922-bot/weread-companion-pyqt6
+- name: 微信读书伴侣 · Flutter
+  description: 面向 Android 的移动阅读伴侣，整合笔记管理、金句卡片、阅读统计与 AI 摘要。
+  stack: Flutter · Dart · Material 3
+  url: https://github.com/zhao922-bot/weread-companion-flutter
+- name: 自定义 LLM 翻译扩展
+  description: 隐私优先的网页翻译扩展，兼容 OpenAI、DeepSeek、Ollama 等开放接口。
+  stack: JavaScript · Browser Extension
+  url: https://github.com/zhao922-bot/immersive-translate-ext
+- name: EPUB 整书翻译工具
+  description: 保留原书排版和目录结构的长文本翻译工具，支持缓存、断点续传与双语对照。
+  stack: Python · EPUB · LLM API
+  url: https://github.com/zhao922-bot/epub-translator
+
