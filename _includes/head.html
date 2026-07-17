@@ -3,9 +3,10 @@
 <meta name="theme-color" content="#f7f7f2" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#111814" media="(prefers-color-scheme: dark)">
 {% seo %}
+{% assign asset_version = site.time | date: '%Y%m%d%H%M%S' %}
 <link rel="icon" type="image/png" sizes="64x64" href="{{ '/assets/img/favicon.png' | relative_url }}">
 <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ '/feed.xml' | relative_url }}">
-<link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+<link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}?v={{ asset_version }}">
 <script>
   (function () {
     var savedTheme = localStorage.getItem('theme');
@@ -15,4 +16,3 @@
     }
   }());
 </script>
-
