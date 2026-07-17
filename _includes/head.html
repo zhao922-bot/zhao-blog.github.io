@@ -1,0 +1,18 @@
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#f7f7f2" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#111814" media="(prefers-color-scheme: dark)">
+{% seo %}
+<link rel="icon" type="image/png" sizes="64x64" href="{{ '/assets/img/favicon.png' | relative_url }}">
+<link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ '/feed.xml' | relative_url }}">
+<link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+<script>
+  (function () {
+    var savedTheme = localStorage.getItem('theme');
+    var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+      document.documentElement.dataset.theme = 'dark';
+    }
+  }());
+</script>
+

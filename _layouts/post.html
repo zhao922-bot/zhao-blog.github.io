@@ -1,0 +1,46 @@
+---
+layout: default
+---
+<article class="post">
+  <header class="page-header post-header">
+    <p class="eyebrow">{{ page.categories | first | default: '文章' }}</p>
+    <h1 class="page-title">{{ page.title }}</h1>
+    <p class="post-meta">
+      <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: '%Y-%m-%d' }}</time>
+      <span aria-hidden="true">·</span>
+      <span>{{ page.author | default: site.author.name }}</span>
+      {% if page.reading_time %}<span aria-hidden="true">·</span><span>{{ page.reading_time }} 分钟阅读</span>{% endif %}
+    </p>
+    {% if page.description %}<p class="page-description">{{ page.description }}</p>{% endif %}
+    {% if page.tags %}
+      <nav class="post-tags" aria-label="文章标签">
+        {% for tag in page.tags %}<a class="tag" href="{{ '/tags.html' | relative_url }}">{{ tag }}</a>{% endfor %}
+      </nav>
+    {% endif %}
+  </header>
+
+  <div class="article-layout">
+    <div class="post-content">
+      {{ content }}
+    </div>
+    <aside class="toc" aria-label="文章目录" hidden>
+      <p class="toc-title">目录</p>
+      <ol class="toc-list"></ol>
+    </aside>
+  </div>
+
+  <nav class="post-nav" aria-label="文章导航">
+    {% if page.previous %}
+      <a class="post-nav-card" href="{{ page.previous.url | relative_url }}">
+        <span>上一篇</span>
+        <strong>{{ page.previous.title }}</strong>
+      </a>
+    {% endif %}
+    {% if page.next %}
+      <a class="post-nav-card post-nav-next" href="{{ page.next.url | relative_url }}">
+        <span>下一篇</span>
+        <strong>{{ page.next.title }}</strong>
+      </a>
+    {% endif %}
+  </nav>
+</article>

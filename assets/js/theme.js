@@ -1,25 +1,28 @@
-// 主题切换功能
-function toggleTheme() {
-  const body = document.body;
-  
-  if (body.classList.contains('dark-mode')) {
-    body.classList.remove('dark-mode');
-    localStorage.setItem('theme', 'light');
-    document.querySelector('.theme-toggle').textContent = '🌙';
-  } else {
-    body.classList.add('dark-mode');
-    localStorage.setItem('theme', 'dark');
-    document.querySelector('.theme-toggle').textContent = '☀️';
-  }
-}
+(function () {
+  var root = document.documentElement;
+  var button = document.querySelector('.theme-toggle');
+  if (!button) return;
 
-// 页面加载时检查保存的主题
-document.addEventListener('DOMContentLoaded', function() {
-  if (localStorage.getItem('theme') === 'dark') {
-    document.body.classList.add('dark-mode');
-    const toggleBtn = document.querySelector('.theme-toggle');
-    if (toggleBtn) {
-      toggleBtn.textContent = '☀️';
-    }
+  function isDark() {
+    return root.dataset.theme === 'dark';
   }
-});
+
+  function syncButton() {
+    var dark = isDark();
+    button.textContent = dark ? '浅色' : '深色';
+    button.setAttribute('aria-pressed', String(dark));
+  }
+
+  button.addEventListener('click', function () {
+    var next = isDark() ? 'light' : 'dark';
+    if (next === 'dark') {
+      root.dataset.theme = 'dark';
+    } else {
+      delete root.dataset.theme;
+    }
+    localStorage.setItem('theme', next);
+    syncButton();
+  });
+
+  syncButton();
+}());

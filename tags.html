@@ -1,103 +1,27 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>标签 - 赵洋的数字花园</title>
-  <meta name="description" content="浏览赵洋博客的所有标签，包括 GitHub、开源、项目、博客等。">
-  <meta name="author" content="赵洋">
-  <meta property="og:title" content="标签 - 赵洋的数字花园">
-  <meta property="og:description" content="浏览赵洋博客的所有标签。">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://zhao922-bot.github.io/zhao-blog.github.io/tags.html">
-  <link rel="stylesheet" href="/zhao-blog.github.io/assets/css/style.css">
-</head>
-<body>
-  <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
-  
-  <div class="container">
-    <aside class="sidebar">
-      <div class="profile-section">
-        <img src="/zhao-blog.github.io/assets/img/photo_2026-03-05_21-33-20.jpg" alt="头像" class="profile-img">
-        <div class="profile-name">赵洋</div>
-        <div class="profile-bio">记录生活与思考</div>
+---
+layout: page
+title: 文章标签
+nav: tags
+eyebrow: TAGS
+description: 按标签浏览文章。
+---
+{% assign tags = site.tags | sort %}
+<nav class="tag-cloud" aria-label="全部标签">
+  {% for tag in tags %}<a class="tag" href="#tag-{{ forloop.index }}">{{ tag[0] }} · {{ tag[1].size }}</a>{% endfor %}
+</nav>
+<div class="taxonomy-list">
+  {% for tag in tags %}
+    <section class="taxonomy-group" id="tag-{{ forloop.index }}">
+      <div class="taxonomy-heading">
+        <h2>{{ tag[0] }}</h2>
+        <span>{{ tag[1].size }} 篇</span>
       </div>
-      
-      <ul class="nav-links">
-        <li><a href="/zhao-blog.github.io/">首页</a></li>
-        <li><a href="/zhao-blog.github.io/tags.html" class="active">标签</a></li>
-        <li><a href="/zhao-blog.github.io/archives.html">归档</a></li>
-        <li><a href="/zhao-blog.github.io/about.html">关于</a></li>
-      </ul>
-      
-      <div class="social-links">
-        <a href="https://github.com/zhao922-bot" target="_blank">🐙</a>
-        <a href="mailto:1405286051@qq.com">✉️</a>
-        <a href="/zhao-blog.github.io/feed.xml">📡 RSS</a>
-      </div>
-    </aside>
-    
-    <main class="main-content">
-      <header class="page-header">
-        <h1 class="page-title">标签</h1>
-      </header>
-      
-      <section class="tags-section">
-        <div class="tag-list">
-          <a href="/zhao-blog.github.io/tags/GitHub.html" class="tag">GitHub</a>
-          <a href="/zhao-blog.github.io/tags/项目.html" class="tag">项目</a>
-          <a href="/zhao-blog.github.io/tags/开始.html" class="tag">开始</a>
-          <a href="/zhao-blog.github.io/tags/博客.html" class="tag">博客</a>
-        </div>
-        
-        <h3 class="section-title" style="margin-top: 20px;">GitHub</h3>
-        <ul class="posts-list">
-          <li class="post-item">
-            <h3 class="post-title">
-              <a href="/zhao-blog.github.io/posts/github-projects.html">我的 GitHub 项目分享</a>
-            </h3>
-            <div class="post-meta">📅 2025-03-06</div>
-          </li>
-        </ul>
-        
-        <h3 class="section-title" style="margin-top: 20px;">项目</h3>
-        <ul class="posts-list">
-          <li class="post-item">
-            <h3 class="post-title">
-              <a href="/zhao-blog.github.io/posts/github-projects.html">我的 GitHub 项目分享</a>
-            </h3>
-            <div class="post-meta">📅 2025-03-06</div>
-          </li>
-        </ul>
-        
-        <h3 class="section-title" style="margin-top: 20px;">开始</h3>
-        <ul class="posts-list">
-          <li class="post-item">
-            <h3 class="post-title">
-              <a href="/zhao-blog.github.io/posts/welcome.html">一个存放想法的小角落</a>
-            </h3>
-            <div class="post-meta">📅 2025-03-05</div>
-          </li>
-        </ul>
-        
-        <h3 class="section-title" style="margin-top: 20px;">博客</h3>
-        <ul class="posts-list">
-          <li class="post-item">
-            <h3 class="post-title">
-              <a href="/zhao-blog.github.io/posts/welcome.html">一个存放想法的小角落</a>
-            </h3>
-            <div class="post-meta">📅 2025-03-05</div>
-          </li>
-        </ul>
-      </section>
-      
-      <footer class="site-footer">
-        <p>© 2025 赵洋的数字花园. All rights reserved.</p>
-      </footer>
-    </main>
-  </div>
-  
-  <script src="/zhao-blog.github.io/assets/js/theme.js"></script>
-  <script src="/zhao-blog.github.io/assets/js/back-to-top.js"></script>
-</body>
-</html>
+      {% for post in tag[1] %}
+        <a class="taxonomy-post" href="{{ post.url | relative_url }}">
+          <span>{{ post.title }}</span>
+          <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: '%Y-%m-%d' }}</time>
+        </a>
+      {% endfor %}
+    </section>
+  {% endfor %}
+</div>
