@@ -1,6 +1,6 @@
 ---
-title: 我的 6 个开源项目：从媒体管理到 EPUB 翻译
-description: 盘点目前持续维护的五个原创项目与 OpenAver 中文增强分支，以及它们解决的问题和技术选择。
+title: 2026-07-17 项目快照：6 个开源项目
+description: 一份保留当时项目状态的历史快照；其中部分旧仓库已在后续的软件整理中删除。
 date: 2026-07-17 22:30:00 +0800
 categories: [项目分享]
 tags: [GitHub, 项目, 独立开发]
@@ -8,7 +8,9 @@ reading_time: 11
 permalink: /posts/github-projects.html
 ---
 
-我的 GitHub 工作主要围绕三条线展开：本地媒体管理、阅读数据与笔记管理，以及借助可自定义的大语言模型接口完成网页和电子书翻译。这里收录五个原创项目和一个基于上游持续维护的中文增强分支；它们覆盖 Windows、Android 和浏览器，共同目标是减少信息整理工作流中的重复操作。
+> **历史说明（2026-07-28）：** 本文保留 7 月 17 日时的项目状态。此后我删除了三个不再维护的旧仓库，并将精力集中到三条软件主线。原因与最新进展见[《软件近况：EPUB Translator v1.2.0 与项目整理》]({{ '/posts/software-update-july-2026.html' | relative_url }})。
+
+我的 GitHub 工作主要围绕三条线展开：本地媒体管理、阅读数据与笔记管理，以及借助可自定义的大语言模型接口完成网页和电子书翻译。下文是当时六个项目的历史快照。
 
 ## OpenAver 中文增强版
 
@@ -77,7 +79,7 @@ Flutter 版本当前为 **v2.2.0**，面向 Android 使用场景。它不是桌�
 - 将 API 密钥保存在本地，仅向用户选择的端点发送内容
 - 跟随网页的深色或浅色主题
 
-[查看 Custom LLM Translator](https://github.com/zhao922-bot/immersive-translate-ext){: .button .button-secondary target="_blank" rel="noopener noreferrer" }
+[了解该项目停止维护的原因]({{ '/posts/software-update-july-2026.html' | relative_url }}){: .button .button-secondary }
 
 ## 微信读书伴侣 · PyQt6
 
@@ -87,7 +89,7 @@ Flutter 版本当前为 **v2.2.0**，面向 Android 使用场景。它不是桌�
 
 项目使用 Python、PyQt6、SQLite、Pillow、Matplotlib 与 Selenium。Flutter 版本中的许多业务规则和数据结构，最初都来自这个 Python 原型。
 
-[查看微信读书伴侣 PyQt6](https://github.com/zhao922-bot/weread-companion-pyqt6){: .button .button-secondary target="_blank" rel="noopener noreferrer" }
+[了解旧版迁移与删库原因]({{ '/posts/software-update-july-2026.html' | relative_url }}){: .button .button-secondary }
 
 ## EPUB Translator · Python
 
@@ -97,7 +99,7 @@ Flutter 版本当前为 **v2.2.0**，面向 Android 使用场景。它不是桌�
 
 Python 版本仍然适合命令行自动化、桌面使用和快速验证新的翻译策略；成熟的产品体验则继续在 Flutter 版本中演进。
 
-[查看 EPUB Translator Python](https://github.com/zhao922-bot/epub-translator){: .button .button-secondary target="_blank" rel="noopener noreferrer" }
+[了解 Python 版被 Flutter 主线取代的原因]({{ '/posts/software-update-july-2026.html' | relative_url }}){: .button .button-secondary }
 
 ## 项目之间的关系
 
