@@ -1,11 +1,7 @@
 - name: EPUB Translator · Flutter
-  description: 面向整本书翻译的 Windows 应用，新增可确认的风格档案、上下文翻译、质量校验、断点续传与 EPUB 兼容性修复。
+  description: 面向整本书翻译的 Windows 应用，提供可确认的风格档案、上下文翻译、质量校验、断点续传与 EPUB 兼容性修复。
   stack: v1.2.0 · Flutter · Dart · Riverpod · Dio
   url: https://github.com/zhao922-bot/epub-translator-flutter
-- name: OpenAver 中文增强版
-  description: 基于 OpenAver 持续维护的个人增强分支，强化中文元数据、批量整理与回滚、NFO/剧照维护、授权媒体下载和运维诊断。
-  stack: ops10 · Python · FastAPI · SQLite · FFmpeg
-  url: https://github.com/zhao922-bot/OpenAver/tree/openaver-cn-local
 - name: 微信读书伴侣 · Flutter
   description: 面向 Android 的移动阅读伴侣，集中管理书架与笔记，并提供金句卡片、阅读报告、AI 摘要和 Markdown 导出。
   stack: v2.2.0 · Flutter · Dart · SQLite · Material 3
