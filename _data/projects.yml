@@ -1,3 +1,7 @@
+- name: 太初易筮 · Flutter
+  description: 基于《高岛易断》的传统占筮应用，提供五种起筮流程、本地卦辞与占断、阴阳主题和可恢复的起筮过程。
+  stack: v1.0.1 · Flutter · Dart · Android · Windows
+  url: https://github.com/zhao922-bot/taichu-yishi
 - name: EPUB Translator · Flutter
   description: 面向整本书翻译的 Windows 应用，提供可确认的风格档案、上下文翻译、质量校验、断点续传与 EPUB 兼容性修复。
   stack: v1.2.0 · Flutter · Dart · Riverpod · Dio
