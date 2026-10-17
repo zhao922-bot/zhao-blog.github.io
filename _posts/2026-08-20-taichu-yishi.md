@@ -1,7 +1,8 @@
 ---
-title: 太初易筮：v1.0.1 首次公开发布
-description: 记录 taichu-yishi v1.0.1 的公开发布时间、起筮流程与本地化设计。
+title: 太初易筮：v1.1.0 发布与 v1.2.0 源码进展
+description: 记录五种本地起筮流程、v1.1.0 正式安装包与 v1.2.0 源码中的筮法、经文和恢复修复。
 date: 2026-08-20 10:00:01 +0800
+last_modified_at: 2026-10-17 00:01:00 +0800
 categories: [项目分享]
 tags: [GitHub, 太初易筮, Flutter, 传统文化]
 reading_time: 5
@@ -12,13 +13,15 @@ permalink: /posts/taichu-yishi.html
 
 这是我在传统文化方向上的一次软件尝试：把原本需要查书、记步骤的过程整理成可以在本机完成、保存和恢复的工具。它不试图替代对经典文本的阅读，主要用于学习传统筮法和个人省思。
 
-公开 GitHub Release 从 **2026 年 8 月 20 日** 的 v1.0.1 开始，目前只有一个正式版本。
+公开 GitHub Release 从 **2026 年 8 月 20 日** 的 v1.0.1 开始。截至 2026-10-17，最新正式下载仍是 **v1.1.0**，`main` 源码版本已到 **v1.2.0+4**。两者需要分开看：源码更新不代表对应安装包已经发布。
 
 ## 版本记录
 
 | 版本 | 发布时间 | 更新重点 |
 | --- | --- | --- |
 | [v1.0.1](https://github.com/zhao922-bot/taichu-yishi/releases/tag/v1.0.1) | 2026-08-20 | 首次公开发布，包含五种起筮流程、本地占断数据、三种界面样式和 Android / Windows 发布包 |
+| [v1.1.0](https://github.com/zhao922-bot/taichu-yishi/releases/tag/v1.1.0) | 2026-10-05 | 包名更正、结构整理、边界保护、分堆模式保持与传统竖排卦符 |
+| v1.2.0 源码 | 2026-10-09 | 余数均匀随机模型、经文校对、存档恢复与手势修复；尚无同版本 Release |
 
 ## v1.0.1 · 2026-08-20
 
@@ -36,8 +39,28 @@ v1.0.1 是太初易筮的首次公开版本，核心是把不同的传统起筮�
 
 界面提供三种样式：阴（夜色漆金）、阳（宣纸日光）和跟随系统。尚未完成的起筮会保存到本机，下次可以继续；如果不想保留，也可以主动放弃本次起筮。
 
-当前公开版本同时提供 Android APK、Android AAB 和 Windows x64 便携版。安装包和校验值可以在 [v1.0.1 发布页面](https://github.com/zhao922-bot/taichu-yishi/releases/tag/v1.0.1) 查看。
+v1.0.1 当时提供 Android APK、AAB 和 Windows x64 便携版。最新 v1.1.0 Release 提供 Android APK 与 AAB，未附 Windows 包；Windows 用户可查看历史包或按源码说明构建，不能把旧包当作最新版本。
 
-这款软件仅供传统文化学习与个人省思，不构成医疗、法律、投资或其他专业建议。后续如果继续发版，我会把每次更新的版本、时间和功能补进这篇记录。
+## v1.1.0 · 2026-10-05
 
-[查看太初易筮项目](https://github.com/zhao922-bot/taichu-yishi){: .button .button-primary target="_blank" rel="noopener noreferrer" }
+- 包名更正为 `taichu_yishi`，代码拆分为入口、筮法引擎、界面与样式模块。
+- 起筮完成后的边界状态与非法分堆改为安全提示。
+- “亲自分堆 / 自动分堆”选择在多步骤之间保持。
+- 结果页使用上卦在上、下卦在下的传统竖排卦符。
+- 增加 GitHub Actions 静态分析与测试，补齐 iOS / macOS 工程支持。
+
+本版更换了 Android 发布签名。发布说明要求 v1.0.1 用户卸载后重装，无法直接覆盖；需要保留的本地内容应在卸载前处理。
+
+## v1.2.0 源码 · 2026-10-09
+
+传统筮法的自动分签改用“余数均匀”随机模型，更贴近传统手分的概率特性。经文按通行本校正了夬卦辞去“吉”、困九五“劓刖”、艮卦辞“艮其背”、既济六四“有衣袽”四处文字。
+
+同时修复略筮法自动模式换步后分堆固定、空右堆归余、第二变剩余变数文案、异常存档恢复、持久化串行化、启动偏好降级和分堆手势误触。问题文本、进度与界面偏好仍在本地保存。
+
+以上来自 [main 分支 README](https://github.com/zhao922-bot/taichu-yishi/blob/main/README.md)。截至本次更新，公开 Release 列表中尚无 v1.2.0，因此这里标记为源码进展。
+
+软件用于传统文化学习与个人省思，卦辞与占断为本地经典文本资料。
+
+[下载最新公开版 v1.1.0](https://github.com/zhao922-bot/taichu-yishi/releases/tag/v1.1.0){: .button .button-primary target="_blank" rel="noopener noreferrer" }
+
+[查看太初易筮源码](https://github.com/zhao922-bot/taichu-yishi){: .button .button-secondary target="_blank" rel="noopener noreferrer" }
