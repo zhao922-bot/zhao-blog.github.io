@@ -8,7 +8,7 @@ image: /assets/img/og.png
 <section class="hero">
   <p class="eyebrow">HELLO, I’M ZHAO YANG</p>
   <h1>在研究与代码之间，<br>做有用、耐用的工具。</h1>
-  <p class="hero-copy">我是一名生物学研究生和独立开发者，目前集中维护 EPUB Translator、微信读书伴侣与太初易筮。这里记录产品迭代、技术取舍与项目收敛背后的判断。</p>
+  <p class="hero-copy">我是一名生物学研究生和独立开发者，目前集中维护页渡 FolioFerry、阅珀 ReadAmber 与太初易筮，围绕电子书翻译、阅读整理和传统文化构建工具。这里记录产品迭代与技术取舍。</p>
   <div class="hero-actions">
     <a class="button button-primary" href="{{ '/projects/' | relative_url }}">查看精选项目</a>
     <a class="button button-secondary" href="{{ '/about.html' | relative_url }}">了解我</a>
@@ -51,6 +51,7 @@ image: /assets/img/og.png
         <div>
           <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
           <p>{{ post.description | default: post.excerpt | strip_html | truncate: 110 }}</p>
+          {% if post.last_modified_at %}<p>更新于 {{ post.last_modified_at | date: '%Y.%m.%d' }}</p>{% endif %}
           {% for tag in post.tags %}<span class="tag">{{ tag }}</span>{% endfor %}
         </div>
       </article>

@@ -1,12 +1,12 @@
-- name: 太初易筮 · Flutter
-  description: 基于《高岛易断》的传统占筮应用，提供五种起筮流程、本地卦辞与占断、阴阳主题和可恢复的起筮过程。
-  stack: v1.0.1 · Flutter · Dart · Android · Windows
-  url: https://github.com/zhao922-bot/taichu-yishi
-- name: EPUB Translator · Flutter
-  description: 面向整本书翻译的 Windows 应用，提供可确认的风格档案、上下文翻译、质量校验、断点续传与 EPUB 兼容性修复。
-  stack: v1.2.0 · Flutter · Dart · Riverpod · Dio
+- name: 页渡 · FolioFerry
+  description: 原 EPUB Translator Flutter。支持 Windows 与 Android 的整书翻译、风格档案、缓存续传、语义复核和人工校对，导出单语或双语 EPUB。
+  stack: v1.7.0 · Flutter · Windows · Android
   url: https://github.com/zhao922-bot/epub-translator-flutter
-- name: 微信读书伴侣 · Flutter
-  description: 面向 Android 的移动阅读伴侣，集中管理书架与笔记，并提供金句卡片、阅读报告、AI 摘要和 Markdown 导出。
-  stack: v2.2.0 · Flutter · Dart · SQLite · Material 3
+- name: 阅珀 · ReadAmber
+  description: 原微信读书伴侣。同步书架、划线与笔记到本地，提供引用可回跳的 AI 摘要、金句卡片、Markdown 导出和三种主题。
+  stack: v2.10.0 · Flutter · Windows · Android
   url: https://github.com/zhao922-bot/weread-companion-flutter
+- name: 太初易筮
+  description: 基于《高岛易断》的本地传统占筮应用，提供五种起筮流程、阴阳主题与进度恢复；源码 v1.2.0 改进随机分签、经文与恢复校验。
+  stack: 安装包 v1.1.0 · 源码 v1.2.0 · Flutter
+  url: https://github.com/zhao922-bot/taichu-yishi

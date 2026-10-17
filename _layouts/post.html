@@ -7,6 +7,7 @@ layout: default
     <h1 class="page-title">{{ page.title }}</h1>
     <p class="post-meta">
       <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: '%Y-%m-%d' }}</time>
+      {% if page.last_modified_at %}<span aria-hidden="true">·</span><span>更新于 <time datetime="{{ page.last_modified_at | date_to_xmlschema }}">{{ page.last_modified_at | date: '%Y-%m-%d' }}</time></span>{% endif %}
       <span aria-hidden="true">·</span>
       <span>{{ page.author | default: site.author.name }}</span>
       {% if page.reading_time %}<span aria-hidden="true">·</span><span>{{ page.reading_time }} 分钟阅读</span>{% endif %}
