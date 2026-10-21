@@ -20,7 +20,7 @@
     } else {
       delete root.dataset.theme;
     }
-    localStorage.setItem('theme', next);
+    try { localStorage.setItem('theme', next); } catch (error) {}
     syncButton();
   });
 
