@@ -4,7 +4,7 @@ title: 开源项目
 nav: projects
 eyebrow: PROJECTS
 permalink: /projects/
-description: 页渡 FolioFerry、阅珀 ReadAmber 与太初易筮，记录当前正式版本、源码进展与项目入口。
+description: 药枢 PharmaHub、页渡 FolioFerry、阅珀 ReadAmber 与太初易筮，记录在线应用、正式版本、源码进展与项目入口。
 ---
 <div class="projects-page-grid">
   {% for project in site.data.projects %}
@@ -13,6 +13,7 @@ description: 页渡 FolioFerry、阅珀 ReadAmber 与太初易筮，记录当前
       <h2>{{ project.name }}</h2>
       <p>{{ project.description }}</p>
       <p class="project-stack">{{ project.stack }}</p>
+      {% if project.website %}<a class="button button-primary" href="{{ project.website }}" target="_blank" rel="noopener noreferrer">在线使用（需 ChatGPT 登录）</a>{% endif %}
       <a class="button button-secondary" href="{{ project.url }}" target="_blank" rel="noopener noreferrer">在 GitHub 查看</a>
     </article>
   {% endfor %}

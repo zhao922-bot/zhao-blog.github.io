@@ -1,3 +1,8 @@
+- name: 药枢 · PharmaHub
+  description: 中文药物机制学习工具，提供 123 张卡片、36 组同类药对比、机制图、测验和间隔复习；云端版支持账号独立记录与跨设备学习，仅供学习参考。
+  stack: 在线版 · React · Vinext · Cloudflare D1
+  url: https://github.com/zhao922-bot/pharmahub
+  website: https://pharmahub.ampleox17.chatgpt.site
 - name: 页渡 · FolioFerry
   description: 原 EPUB Translator Flutter。支持整书翻译、缓存续传、语义复核与人工校对；可选自动应用经独立请求验证的修正，导出单语或双语 EPUB。
   stack: v1.7.3 · Flutter · Windows · Android
