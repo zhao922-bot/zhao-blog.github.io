@@ -123,11 +123,17 @@ button { cursor: pointer; }
 .post-content table { display: block; width: 100%; max-width: 100%; margin: 24px 0; overflow-x: auto; border-collapse: collapse; font-size: 13px; }
 .post-content th, .post-content td { min-width: 100px; padding: 12px; border: 1px solid var(--border); text-align: left; vertical-align: top; }
 .post-content th { background: var(--surface-soft); font-weight: 600; }
-.toc { position: sticky; top: 32px; border-left: 1px solid var(--border); padding-left: 22px; }
-.toc-title { margin: 0 0 16px; font-size: 12px; font-weight: 600; }
+.toc { position: sticky; top: 32px; max-height: calc(100dvh - 64px); overflow-y: auto; border-left: 1px solid var(--border); padding-left: 22px; }
+.toc-title { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 44px; margin: 0; font-size: 12px; font-weight: 600; cursor: pointer; list-style: none; }
+.toc-title::-webkit-details-marker { display: none; }
+.toc-title::after { content: "展开 +"; color: var(--muted); font-weight: 400; }
+.toc-panel[open] > .toc-title::after { content: "收起 −"; }
+.toc-panel[open] > .toc-list { margin-top: 12px; }
 .toc-list { display: grid; gap: 12px; margin: 0; padding: 0; list-style: none; }
 .toc-list a { display: block; color: var(--muted); font-size: 12px; line-height: 1.7; text-decoration: none; overflow-wrap: anywhere; }
 .toc-list a:hover, .toc-list a.active { color: var(--text); text-decoration: underline; }
+.toc-list a.active { font-weight: 650; text-decoration-thickness: 2px; text-underline-offset: 4px; }
+.taxonomy-group { scroll-margin-top: 24px; }
 .toc-level-3 { padding-left: 12px; }
 .post-nav { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 32px; margin-top: 56px; padding-top: 24px; border-top: 1px solid var(--border); }
 .post-nav-card { display: flex; flex-direction: column; gap: 8px; padding: 10px 0; color: var(--text); text-decoration: none; }
@@ -158,7 +164,7 @@ button { cursor: pointer; }
   .search-input { width: 120px; }
   .article-layout { grid-template-columns: minmax(0,1fr); gap: 28px; }
   .post-content { max-width: 760px; }
-  .toc { position: static; order: -1; padding: 0 0 22px; border: 0; border-bottom: 1px solid var(--border); }
+  .toc { position: static; order: -1; max-height: none; overflow: visible; padding: 0 0 12px; border: 0; border-bottom: 1px solid var(--border); }
   .toc-list { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 8px 24px; }
 }
 @media (max-width: 720px) {
