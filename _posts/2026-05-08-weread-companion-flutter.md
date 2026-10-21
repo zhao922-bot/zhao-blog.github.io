@@ -1,15 +1,15 @@
 ---
-title: 阅珀 ReadAmber：阅读整理与 v2.10.0 更新
-description: 微信读书伴侣已更名阅珀 ReadAmber，新增 Windows 支持、统一品牌界面与三种主题，更新至 v2.10.0。
+title: 阅珀 ReadAmber：阅读整理与 v2.10.1 更新
+description: 更新至 v2.10.1，记录阅珀的笔记搜索与 Markdown 导出优化、账号配置修复，以及 Windows 安装和 Android 换机说明。
 date: 2026-05-08 11:18:00 +0800
-last_modified_at: 2026-10-17 00:01:00 +0800
+last_modified_at: 2026-10-21 00:00:00 +0800
 categories: [项目分享]
 tags: [GitHub, 微信读书, Flutter, 独立开发]
-reading_time: 9
+reading_time: 10
 permalink: /posts/weread-companion-flutter.html
 ---
 
-微信读书伴侣自 v2.8.0 起正式更名为 **「阅珀 · ReadAmber」**，当前版本为 **v2.10.0（构建号 24）**。宣传语是“让读过的，留下来”：将书摘、笔记与阅读回顾留在手边。软件现已同时支持 Android 和 Windows，仓库地址保持不变。
+微信读书伴侣自 v2.8.0 起正式更名为 **「阅珀 · ReadAmber」**，截至 2026-10-21，当前版本为 **v2.10.1（构建号 25）**。宣传语是“让读过的，留下来”：将书摘、笔记与阅读回顾留在手边。软件现已同时支持 Android 和 Windows，仓库地址保持不变。最新补丁重点改善搜索、导出、配置保存与安装可靠性，继续保留三种主题和现有功能。
 
 公开 GitHub Release 从 **2026 年 5 月 8 日** 的 v2.1.0 开始。下面保留早期记录并补充十月主要发布阶段；时间按 UTC+8 展示，完整细目见[发布列表](https://github.com/zhao922-bot/weread-companion-flutter/releases)与[更新日志](https://github.com/zhao922-bot/weread-companion-flutter/blob/main/CHANGELOG.md)。
 
@@ -25,6 +25,7 @@ permalink: /posts/weread-companion-flutter.html
 | v2.8.0 | 2026-10-17 | 正式更名阅珀 ReadAmber，更新图标和品牌 |
 | v2.9.0 | 2026-10-17 | 墨青、琥珀金与纸白界面，统一手机与桌面布局 |
 | [v2.10.0](https://github.com/zhao922-bot/weread-companion-flutter/releases/tag/v2.10.0) | 2026-10-17 | 三种应用主题、主题持久化与单行 AI 快速预设 |
+| [v2.10.1](https://github.com/zhao922-bot/weread-companion-flutter/releases/tag/v2.10.1) | 2026-10-18 | 搜索与导出提速、配置并发修复、安装回滚与凭据备份处理 |
 
 ## v2.1.0 · 2026-05-08
 
@@ -73,14 +74,26 @@ v2.7.0 新增 Windows x64 EXE 安装包与便携 ZIP，包含 Flutter、SQLite �
 
 发布记录显示 **764 项测试通过**，可执行 Dart 代码行覆盖率和分支覆盖率均为 100%。这些数字描述自动化检查范围，真实账号、系统分享和不同设备仍需要各自验证。
 
+## v2.10.1：搜索、导出与使用可靠性
+
+这次更新包含 11 项修复与优化。保存 AI 设置时只更新 AI 配置，避免覆盖同时刷新的登录令牌；已取消的请求也不会再消耗新会话的缓存书架。手机卡片预览弹层恢复正常拖动，书架密度偏好损坏或保存失败时可以恢复、重试。
+
+笔记搜索改进索引候选定位，Markdown 导出按书籍索引提取快照标题，减少重复扫描。发布说明中的本机 JIT 基准使用 5 万条合成笔记：选择性四字搜索的计数与首屏查询中位数约从 **745 ms 降至 2 ms**；约 50 MB Markdown 的导出及流式回读约从 **67 s 降至 2.75 s**。这些是特定数据与运行环境的结果，不能直接当作手机实测速度；少于三个字符的查询仍采用原有的 LIKE 匹配方式。
+
+Windows 安装会先暂存完整文件，替换失败时回滚，并防止同目录并发安装；同时修复字体变化消息在引擎初始化前或销毁后引发的崩溃。并发文件刷新也会等待实际写入完成，并正确反馈失败。
+
+发布记录为 **783 项 Dart 测试通过、静态分析无问题**，可执行行与分支覆盖率均为 100%，并补充 Android 备份配置、Windows 安装回滚和字体消息检查。本轮没有进行 Android 真机、真实微信读书登录同步或实际 AI 服务验证。完整依据见 [v2.10.1 发布说明](https://github.com/zhao922-bot/weread-companion-flutter/releases/tag/v2.10.1)。
+
 ## 当前下载与迁移
 
-[v2.10.0 发布页](https://github.com/zhao922-bot/weread-companion-flutter/releases/tag/v2.10.0) 提供 Android 7.0+ 通用 APK、Windows x64 EXE、便携 ZIP 和 SHA-256 校验文件。
+[v2.10.1 发布页](https://github.com/zhao922-bot/weread-companion-flutter/releases/tag/v2.10.1) 提供 Android 7.0+ 通用 APK、Windows x64 EXE、便携 ZIP 和 SHA-256 校验文件。
 
-Android v2.7.0～v2.9.0 可覆盖升级；更早版本可能存在签名差异，需要卸载时先导出并另存笔记。Markdown 不是可恢复全部应用状态的备份。Windows 更新前关闭旧版，便携包完整解压后运行 `weread_companion.exe`。
+Android v2.7.0～v2.10.0 可覆盖升级；更早版本可能存在签名差异，需要卸载时先导出并另存笔记。Markdown 不是可恢复全部应用状态的备份。v2.10.1 在系统备份和换机传输中排除设备绑定的凭据文件，避免恢复无法解密的内容；**系统恢复或换机后需要重新登录、重新填写 AI Key**，同设备覆盖升级继续保留配置。
+
+Windows 更新前关闭旧版，便携包完整解压后运行 `weread_companion.exe`，保留 DLL 和 `data` 文件夹。
 
 阅珀是独立第三方工具。阅读数据在本机保存；AI 摘要会把相关笔记发送到自己配置的服务。退出或换号会清理当前账号的应用管理数据，需要保留的内容应提前另存。
 
-[下载阅珀 v2.10.0](https://github.com/zhao922-bot/weread-companion-flutter/releases/tag/v2.10.0){: .button .button-primary target="_blank" rel="noopener noreferrer" }
+[下载阅珀 v2.10.1](https://github.com/zhao922-bot/weread-companion-flutter/releases/tag/v2.10.1){: .button .button-primary target="_blank" rel="noopener noreferrer" }
 
 [查看源码与完整更新记录](https://github.com/zhao922-bot/weread-companion-flutter){: .button .button-secondary target="_blank" rel="noopener noreferrer" }
