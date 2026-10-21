@@ -15,6 +15,7 @@
       <label class="sr-only" for="site-search">搜索文章</label>
       <input id="site-search" class="search-input" type="search" role="combobox" placeholder="搜索文章" autocomplete="off" aria-autocomplete="list" aria-haspopup="listbox" aria-controls="search-results" aria-expanded="false" data-search-url="{{ '/search.json' | relative_url }}">
       <div id="search-results" class="search-results" role="listbox" hidden></div>
+      <span id="search-status" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></span>
     </div>
     <button class="theme-toggle" type="button" aria-label="切换深浅色主题" aria-pressed="false">深色</button>
   </div>

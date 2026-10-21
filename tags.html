@@ -7,11 +7,12 @@ description: 按标签浏览文章。
 ---
 {% assign tags = site.tags | sort %}
 <nav class="tag-cloud" aria-label="全部标签">
-  {% for tag in tags %}<a class="tag" href="#tag-{{ forloop.index }}">{{ tag[0] }} · {{ tag[1].size }}</a>{% endfor %}
+  {% for tag in tags %}<a class="tag" href="#tag-{{ tag[0] | slugify: 'pretty' | uri_escape }}">{{ tag[0] | escape }} · {{ tag[1].size }}</a>{% endfor %}
 </nav>
 <div class="taxonomy-list">
   {% for tag in tags %}
-    <section class="taxonomy-group" id="tag-{{ forloop.index }}">
+    <section class="taxonomy-group" id="tag-{{ tag[0] | slugify: 'pretty' | escape }}">
+      <span id="tag-{{ forloop.index }}" aria-hidden="true"></span>
       <div class="taxonomy-heading">
         <h2>{{ tag[0] }}</h2>
         <span>{{ tag[1].size }} 篇</span>
