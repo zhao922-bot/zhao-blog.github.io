@@ -19,10 +19,10 @@ bundle install
 bundle exec jekyll serve
 ```
 
-项目站点使用 `baseurl: /zhao-blog.github.io`。本地预览地址通常为：
+项目站点使用自定义域名 `https://zhaoyang.us.ci`，因此 `baseurl` 为空。本地预览地址通常为：
 
 ```text
-http://127.0.0.1:4000/zhao-blog.github.io/
+http://127.0.0.1:4000/
 ```
 
 ## 发布
