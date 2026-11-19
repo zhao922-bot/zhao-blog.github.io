@@ -1,0 +1,26 @@
+---
+layout: page
+title: 生活碎记
+nav: moments
+eyebrow: MOMENTS
+permalink: /moments.html
+description: 不必等到凑成一篇长文，把日常里的读书片段、实验室间隙、天气变化和开发随想随手记在这里。
+---
+<div class="moments-timeline">
+  {% for item in site.data.moments %}
+    <article class="moment-card">
+      <div class="moment-meta">
+        <time>{{ item.date }}</time>
+        {% if item.location %}<span class="moment-location">📍 {{ item.location }}</span>{% endif %}
+        {% if item.tag %}<span class="moment-tag">{{ item.tag }}</span>{% endif %}
+      </div>
+      <p class="moment-text">{{ item.text }}</p>
+      {% if item.image %}
+        <figure class="moment-figure">
+          <img src="{{ item.image | relative_url }}" alt="{{ item.image_caption | default: '生活随手拍' }}" loading="lazy">
+          {% if item.image_caption %}<figcaption>{{ item.image_caption }}</figcaption>{% endif %}
+        </figure>
+      {% endif %}
+    </article>
+  {% endfor %}
+</div>

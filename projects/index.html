@@ -11,10 +11,15 @@ description: 药枢 PharmaHub、页渡 FolioFerry、阅珀 ReadAmber 与太初�
     <article class="project-card project-card-large">
       <p class="project-index">0{{ forloop.index }}</p>
       <h2>{{ project.name }}</h2>
-      <p>{{ project.description }}</p>
-      <p class="project-stack">{{ project.stack }}</p>
-      {% if project.website %}<a class="button button-primary" href="{{ project.website }}" target="_blank" rel="noopener noreferrer">在线使用（需 ChatGPT 登录）</a>{% endif %}
-      <a class="button button-secondary" href="{{ project.url }}" target="_blank" rel="noopener noreferrer">在 GitHub 查看</a>
+      <p class="project-desc">{{ project.description }}</p>
+      {% assign stacks = project.stack | split: ' · ' %}
+      <div class="stack-list">
+        {% for tech in stacks %}<span class="stack-pill">{{ tech }}</span>{% endfor %}
+      </div>
+      <div class="project-actions">
+        {% if project.website %}<a class="button button-primary" href="{{ project.website }}" target="_blank" rel="noopener noreferrer">在线使用（需 ChatGPT 登录）</a>{% endif %}
+        <a class="button button-secondary" href="{{ project.url }}" target="_blank" rel="noopener noreferrer">在 GitHub 查看</a>
+      </div>
     </article>
   {% endfor %}
 </div>

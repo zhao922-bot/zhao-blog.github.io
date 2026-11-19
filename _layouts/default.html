@@ -4,6 +4,7 @@
   {% include head.html %}
 </head>
 <body>
+  {% if page.layout == 'post' %}<div class="reading-progress" aria-hidden="true"></div>{% endif %}
   <a class="skip-link" href="#main-content">跳到主要内容</a>
   <div class="site-shell">
     {% include sidebar.html %}
@@ -16,6 +17,9 @@
   <script src="{{ '/assets/js/theme.js' | relative_url }}?v={{ asset_version }}" defer></script>
   <script src="{{ '/assets/js/search.js' | relative_url }}?v={{ asset_version }}" defer></script>
   <script src="{{ '/assets/js/back-to-top.js' | relative_url }}?v={{ asset_version }}" defer></script>
-  {% if page.layout == 'post' %}<script src="{{ '/assets/js/toc.js' | relative_url }}?v={{ asset_version }}" defer></script>{% endif %}
+  {% if page.layout == 'post' %}
+    <script src="{{ '/assets/js/toc.js' | relative_url }}?v={{ asset_version }}" defer></script>
+    <script src="{{ '/assets/js/reading-progress.js' | relative_url }}?v={{ asset_version }}" defer></script>
+  {% endif %}
 </body>
 </html>

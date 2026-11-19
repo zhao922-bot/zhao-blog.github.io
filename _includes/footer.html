@@ -1,15 +1,36 @@
 <footer class="site-footer">
-  <nav class="social-links" aria-label="外部链接">
-    <a href="https://github.com/zhao922-bot" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
-    <a href="mailto:1405286051@qq.com">Email</a>
-    <a href="{{ '/feed.xml' | relative_url }}">RSS</a>
-  </nav>
-  <p>© {{ site.time | date: '%Y' }} {{ site.title }}</p>
-  <p>Built with Jekyll · Hosted on GitHub Pages</p>
-  <p class="site-stats">
-    你是本站第 <span id="busuanzi_site_uv" aria-live="polite">统计中</span> 位访客（匿名估算） · 累计访问 <span id="busuanzi_site_pv" aria-live="polite">统计中</span> 次
-  </p>
+  <div class="footer-top">
+    <div class="footer-note">
+      <p class="footer-signoff">写给未来的自己，也欢迎路过的你。</p>
+      <p>© {{ site.time | date: '%Y' }} {{ site.title }} · Built with Jekyll &amp; GitHub Pages</p>
+      <p class="site-stats" id="site-stats" hidden>
+        你是本站第 <span id="busuanzi_site_uv" aria-live="polite"></span> 位访客 · 累计访问 <span id="busuanzi_site_pv" aria-live="polite"></span> 次
+      </p>
+    </div>
+    <nav class="social-links" aria-label="外部链接">
+      <a href="https://github.com/zhao922-bot" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+      <a href="mailto:1405286051@qq.com">Email</a>
+      <a href="{{ '/feed.xml' | relative_url }}">RSS</a>
+    </nav>
+  </div>
 </footer>
 
 <script async src="https://busuanzi.meuicat.com/js"></script>
-
+<script>
+  (function () {
+    var box = document.getElementById('site-stats');
+    var uv = document.getElementById('busuanzi_site_uv');
+    var pv = document.getElementById('busuanzi_site_pv');
+    if (!box || !uv || !pv) return;
+    var tries = 0;
+    var timer = setInterval(function () {
+      tries += 1;
+      if (/^\d+$/.test((uv.textContent || '').trim()) && /^\d+$/.test((pv.textContent || '').trim())) {
+        box.hidden = false;
+        clearInterval(timer);
+      } else if (tries >= 20) {
+        clearInterval(timer);
+      }
+    }, 300);
+  }());
+</script>
