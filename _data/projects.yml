@@ -11,7 +11,3 @@
   description: 原微信读书伴侣。同步书架、划线与笔记到本地，提供引用摘要、金句卡片和三种主题；新版优化笔记搜索、Markdown 导出与安装可靠性。
   stack: v2.10.1 · Flutter · Windows · Android
   url: https://github.com/zhao922-bot/weread-companion-flutter
-- name: 太初易筮
-  description: 基于《高岛易断》的本地传统占筮应用，提供五种起筮流程、阴阳主题与进度恢复；10 月 18 日源码补充偏好恢复、说明滚动与大字体布局修复。
-  stack: 安装包 v1.1.0 · 源码 v1.2.0 · Flutter
-  url: https://github.com/zhao922-bot/taichu-yishi

@@ -2,28 +2,17 @@
 layout: default
 title: 赵洋的数字花园
 nav: home
-description: 生物学研究生与独立开发者赵洋的数字花园，记录药学学习工具、EPUB 翻译、阅读整理、传统文化应用与跨平台开发。
+description: 生物学研究生与独立开发者赵洋的数字花园，记录药学学习工具、EPUB 翻译、阅读整理与跨平台开发。
 image: /assets/img/og.png
 ---
 <section class="hero">
-  <div class="hero-main">
-    <p class="eyebrow-pill"><span class="status-dot" aria-hidden="true"></span>{{ site.data.now.location | default: '哈尔滨 · 黑龙江大学' }} · 生物学研究生 &amp; 独立开发者</p>
-    <h1>研究、代码，<br>与缓慢生长的日常。</h1>
-    <p class="hero-copy">你好，我是赵洋。白天在实验室做生物学研究，晚上和周末折腾药学学习、电子书翻译与阅读整理小工具。<br class="desktop-break">这里记录我的项目实践、读书笔记，也留住生活里的片刻微光。</p>
-    <div class="hero-links">
-      <a class="button button-primary" href="{{ '/about.html' | relative_url }}">认识我 ↗</a>
-      <a class="button button-secondary" href="{{ '/moments.html' | relative_url }}">翻翻生活碎记 →</a>
-    </div>
+  <p class="eyebrow-pill"><span class="status-dot" aria-hidden="true"></span>{{ site.data.now.location | default: '哈尔滨 · 黑龙江大学' }} · 生物学研究生 &amp; 独立开发者</p>
+  <h1>研究、代码，<br>与缓慢生长的日常。</h1>
+  <p class="hero-copy">你好，我是赵洋。白天在实验室做生物学研究，晚上和周末折腾药学学习、电子书翻译与阅读整理小工具。<br class="desktop-break">这里记录我的项目实践、读书笔记，也留住生活里的片刻微光。</p>
+  <div class="hero-links">
+    <a class="button button-primary" href="{{ '/about.html' | relative_url }}">认识我 ↗</a>
+    <a class="button button-secondary" href="{{ '/moments.html' | relative_url }}">翻翻生活碎记 →</a>
   </div>
-  <figure class="hero-portrait">
-    <div class="portrait-frame">
-      <img src="{{ '/assets/img/avatar-260.webp' | relative_url }}" width="260" height="260" alt="赵洋在餐桌前的生活照" fetchpriority="high">
-    </div>
-    <figcaption class="portrait-caption">
-      <strong>赵洋</strong>
-      <span>{{ site.data.now.status | default: '在数字花园里慢慢耕耘' }}</span>
-    </figcaption>
-  </figure>
 </section>
 
 {% if site.data.now.items %}
